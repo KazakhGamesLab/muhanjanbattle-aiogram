@@ -9,7 +9,10 @@ from rdis.redis_listener import start_redis_listener
 from handlers import all_routers
 
 async def set_commands():
-    commands = [BotCommand(command='start', description='Старт')]
+    commands = [
+        BotCommand(command='start', description='Старт'),
+        BotCommand(command='rename_twitch', description='Поменять никнейм')
+        ]
     await bot.set_my_commands(commands, BotCommandScopeDefault())
 
 async def on_startup() -> None:
