@@ -5,6 +5,6 @@ load_dotenv(dotenv_path="../.env")
 
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 REDIS_URL = os.getenv("REDIS_URL")
-FASTAPI_HOST = os.getenv("FASTAPI_HOST")
+FASTAPI_URL = os.getenv("FASTAPI_URL")
 WEBHOOK_URL = os.getenv("WEBHOOK_URL")
 ADMINS = os.getenv("ADMINS")

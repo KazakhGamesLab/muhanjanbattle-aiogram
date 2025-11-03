@@ -6,7 +6,7 @@ from aiogram.webhook.aiohttp_server import SimpleRequestHandler, setup_applicati
 from create_bot import bot, dp
 from config import WEBHOOK_URL
 from rdis.redis_listener import start_redis_listener
-from handlers.start import router
+from handlers import all_routers
 
 async def set_commands():
     commands = [BotCommand(command='start', description='Старт')]
@@ -22,7 +22,8 @@ async def on_shutdown() -> None:
     await bot.delete_webhook(drop_pending_updates=True)
 
 def main() -> None:
-    dp.include_router(router)
+    for router in all_routers:
+        dp.include_router(router)
 
     dp.startup.register(on_startup)
 
