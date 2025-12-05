@@ -4,11 +4,12 @@ from aiogram.types import Message, CallbackQuery
 from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 from api.api_client import post_user, patch_user
-from muhanjanbattle_models.user import UserCreate, UserUpdate
 from aiogram import Router, F
 from logic.users.register import rename_user_twitch
 from messages import REGISTER_FINALLY, TWITCH_NICKNAME_ALREADY, TWITCH_RENAME_SUCCESS, TWITCH_NICKNAME_NOT_VALID
 from logic.users.validator import is_valid_twitch_nickname
+from muhanjanbattle_models.user import UserCreate, UserUpdate
+
 router = Router()
 
 @router.message(UserRegistration.waiting_for_twitch_nickname)
